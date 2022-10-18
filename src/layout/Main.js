@@ -10,13 +10,13 @@ const Main = () => {
             <Header></Header>
             <div className='grid grid-cols-12 px-20'>
                 <div className="products col-span-2 bg-red-700 ">
-                <LeftSideNav></LeftSideNav>
+                    <LeftSideNav></LeftSideNav>
                 </div>
                 <div className="products col-span-7 bg-red-500 ">
-                <Outlet></Outlet>
+                    <Outlet></Outlet>
                 </div>
                 <div className="products col-span-3 bg-red-600 ">
-                <RightSideNav></RightSideNav>
+                    <RightSideNav></RightSideNav>
                 </div>
             </div>
        </div>
