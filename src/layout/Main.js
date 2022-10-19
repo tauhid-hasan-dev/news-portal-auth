@@ -8,14 +8,14 @@ const Main = () => {
     return (
        <div>
             <Header></Header>
-            <div className='grid grid-cols-12 px-20'>
-                <div className="products col-span-2 bg-red-700 ">
+            <div className='grid grid-cols-12 px-32'>
+                <div className=" col-span-2 ">
                     <LeftSideNav></LeftSideNav>
                 </div>
-                <div className="products col-span-7 bg-red-500 ">
+                <div className=" col-span-7 bg-red-500 ">
                     <Outlet></Outlet>
                 </div>
-                <div className="products col-span-3 bg-red-600 ">
+                <div className=" col-span-3 bg-base-200 ">
                     <RightSideNav></RightSideNav>
                 </div>
             </div>
