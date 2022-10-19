@@ -10,8 +10,8 @@ const LeftSideNav = () => {
         .then(data => setCategories(data))
     },[])
     return (
-        <div>
-            <p>Left side nav</p>
+        <div >
+            <p className='text-xl lg:text-2xl'>Categories</p>
             {
                 catagories.map(category => <p key={category.id}><Link className='underline text-blue-600' to={`/category/${category.id}`}>{category.name}</Link></p>)
             }

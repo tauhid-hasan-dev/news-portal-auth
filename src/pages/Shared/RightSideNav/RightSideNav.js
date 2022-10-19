@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGoogle, FaGithub, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa";
+import Carousel from '../Carousel/Carousel';
 
 const RightSideNav = () => {
     return (
@@ -9,14 +10,15 @@ const RightSideNav = () => {
                 <button className="btn btn-outline flex gap-2"><FaGithub/>Login with Github</button>
            </div>
            <p className='text-2xl font-semibold mb-3'>Find us on</p>
-           <div className="btn-group btn-group-vertical w-full flex gap-2">
-                <button className="btn btn-outline btn-primary flex gap-2 "><FaFacebook />Facebook</button>
-                <button className="btn btn-outline btn-error flex gap-2 "><FaYoutube />Youtube</button>
-                <button className="btn btn-outline btn-primary flex gap-2 "><FaTwitter />Twitter</button>
-                <button className="btn btn-outline  flex gap-2 "><FaInstagram />Instagram</button>
-                <button className="btn btn-outline btn-success flex gap-2 "><FaWhatsapp />Whatsapp</button>
-                
-              
+           <div className="btn-group btn-group-vertical w-full flex gap-2 mb-5">
+                <button className="btn btn-outline flex gap-2 justify-start"><FaFacebook />Facebook</button>
+                <button className="btn btn-outline  flex gap-2 justify-start"><FaYoutube />Youtube</button>
+                <button className="btn btn-outline  flex gap-2 justify-start"><FaTwitter />Twitter</button>
+                <button className="btn btn-outline  flex gap-2 justify-start"><FaInstagram />Instagram</button>
+                <button className="btn btn-outline flex gap-2 justify-start"><FaWhatsapp />Whatsapp</button>
+            </div>
+            <div>
+                <Carousel></Carousel>
             </div>
         </>
     );
