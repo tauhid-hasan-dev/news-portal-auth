@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 
 const Header = () => {
-    const user = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     console.log(user);
     
     return (
@@ -32,12 +33,15 @@ const Header = () => {
                     <h1 className='text-3xl'><Link to='/'>News Portal</Link></h1>
                 </div>
                 <div className="navbar-end hidden lg:flex w-[90%]">
-                    <ul className="menu menu-horizontal p-0 text-white">
+                    <ul className="menu menu-horizontal p-0 text-white flex items-center" >
+                  
                         <li><Link to ='/'>Shop</Link></li>
                         <li><Link to = '/orders'>Orders</Link></li>
                         <li><Link to = '/inventory'>Inventory</Link></li>
                         <li><Link to = '/about'>About</Link></li>
-                        <li>{user.name}</li>
+                        <li className='text-red-400 text-xl'>{user?.displayName} </li>
+                        {user.photoURL ? <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" /> : <FaUserAlt/> }
+                        
                     </ul>
                 </div>
                 

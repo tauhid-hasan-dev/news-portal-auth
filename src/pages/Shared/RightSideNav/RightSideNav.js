@@ -1,12 +1,28 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { FaGoogle, FaGithub, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp, FaYoutube} from "react-icons/fa";
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Carousel from '../Carousel/Carousel';
 
 const RightSideNav = () => {
+    const {providerLogin,  setLoading} = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () =>{
+        providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            setLoading(true)
+        })
+        .catch(error => console.error(error))
+    } 
+
     return (
         <>
            <div className='flex flex-col gap-3 mb-5'>
-                <button className="btn btn-outline btn-primary flex gap-2"><FaGoogle /> Login with Google</button>
+                <button onClick={()=> handleGoogleSignIn()} className="btn btn-outline btn-primary flex gap-2"><FaGoogle /> Login with Google</button>
                 <button className="btn btn-outline flex gap-2"><FaGithub/>Login with Github</button>
            </div>
            <p className='text-2xl font-semibold mb-3'>Find us on</p>
