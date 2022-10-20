@@ -28,10 +28,8 @@ const NewsSummeryCard = ({news}) => {
                 <div className="card-body px-3">
                     <h2 className="card-title">{title}</h2>
                 </div>
-                <div className='px-3 '>
-                     <img src={image_url} alt="" />
-                </div>
-                <p className='px-5 py-2'>
+                <img className='px-3' src={image_url} alt="" />
+                <p className='px-5 py-3'>
                     {details.length > 200 ? <p>{details.slice(0, 250) + '...'} <Link className='underline text-blue-600' to={`/news/${_id}`}>Read More</Link></p> : <p>{details}</p>
                     }</p>
                 <footer className="border-gray-300 p-4 bg-base-300 text-base-content border-t-2">
