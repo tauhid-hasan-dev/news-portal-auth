@@ -9,7 +9,12 @@ export const router = createBrowserRouter([
      element: <Main></Main>,
      children:[
         {path:'/', element: <Home></Home>},
-        {path:'/category/:id', element: <Category></Category>},
+        {path:'/category/:id', 
+        element: <Category></Category>,
+        loader: ()=>{
+         fetch(``)
+        }
+      },
         {path:'/news/:id', element:<News></News>}
      ]
 }
