@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
+
 const Header = () => {
+    const user = useContext(AuthContext);
+    console.log(user);
+    
     return (
         <div>
             <div className="navbar bg-primary text-white shadow-lg px-[8%] py-4 ">
@@ -32,6 +37,7 @@ const Header = () => {
                         <li><Link to = '/orders'>Orders</Link></li>
                         <li><Link to = '/inventory'>Inventory</Link></li>
                         <li><Link to = '/about'>About</Link></li>
+                        <li>{user.name}</li>
                     </ul>
                 </div>
                 

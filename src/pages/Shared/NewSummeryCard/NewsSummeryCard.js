@@ -29,9 +29,9 @@ const NewsSummeryCard = ({news}) => {
                     <h2 className="card-title">{title}</h2>
                 </div>
                 <img className='px-3' src={image_url} alt="" />
-                <p className='px-5 py-3'>
+                <div className='px-5 py-2'>
                     {details.length > 200 ? <p>{details.slice(0, 250) + '...'} <Link className='underline text-blue-600' to={`/news/${_id}`}>Read More</Link></p> : <p>{details}</p>
-                    }</p>
+                    }</div>
                 <footer className="border-gray-300 p-4 bg-base-300 text-base-content border-t-2">
                     <div className='flex justify-between items-center'>
                         <div className='flex items-center  gap-2'>

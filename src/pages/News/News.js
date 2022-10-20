@@ -3,9 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const News = () => {
     const news = useLoaderData(); 
-    const {_id, author, details, total_view, rating, title, thumbnail_url, image_url, category_id} = news
+    const { author, details, title, thumbnail_url, image_url, category_id} = news
     const {name, published_date, img} = author;
-    const {number} = rating;
     return (
         <div className='p-5'>
             <div className="card  bg-base-100 shadow-xl rounded-md">
