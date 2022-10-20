@@ -27,7 +27,7 @@ const NewsSummeryCard = ({news}) => {
                 <div className="card-body px-3">
                     <h2 className="card-title">{title}</h2>
                 </div>
-                <div className='px-3'>
+                <div className='px-3 object-cover'>
                      <img src={image_url} alt="" />
                 </div>
                 <p className='px-5 py-2'>{details}</p>
