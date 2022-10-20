@@ -9,7 +9,7 @@ const Main = () => {
     return (
        <div>
             <Header></Header>
-            <div className='grid grid-cols-12 px-10 lg:px-[8%] lg:py-5'>
+            <div className='grid grid-cols-12 px-10 lg:px-[7%] lg:py-5'>
                 <div className="col-span-12 lg:col-span-2 hidden lg:block">
                     <LeftSideNav></LeftSideNav>
                 </div>
