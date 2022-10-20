@@ -21,11 +21,10 @@ const Header = () => {
                                     <LeftSideNav></LeftSideNav>
                                 </div>
                             </li>
-                            
                         </ul>
                        
                     </div>
-                    <h1 className='text-3xl'>News Portal</h1>
+                    <h1 className='text-3xl'><Link to='/'>News Portal</Link></h1>
                 </div>
                 <div className="navbar-end hidden lg:flex w-[90%]">
                     <ul className="menu menu-horizontal p-0 text-white">
