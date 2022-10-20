@@ -6,8 +6,14 @@ import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     console.log(user);
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(() => {})
+        .catch(error => console.error(error))
+    }
     
     return (
         <div>
@@ -31,10 +37,22 @@ const Header = () => {
                 </div>
                 <div className="navbar-end hidden lg:flex w-[90%]">
                     <ul className="menu menu-horizontal p-0 text-white flex items-center" >
-                        <li className='bg-red-500 mr-5'><Link to = '/about'>Subscribe</Link></li>
-                        <li className='text-red-400 text-xl'>{user?.displayName} </li>
+                        <li className='bg-blue-500 mr-5'><Link to = '/about'>Subscribe</Link></li>
+                        <li className='text-base-400 text-lg mr-5'>
+                            {
+                                user?.uid ? 
+                                <>
+                               <button onClick={handleLogOut} className='bg-blue-500'>log out</button>
+                                <span>{user?.displayName}</span>
+                                </> : 
+                                <>
+                                  <Link to='/login'>Login</Link>
+                                  <Link to='/register'>Register</Link>
+                                </> 
+                            }
+                            
+                             </li>
                         {user?.photoURL ? <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" /> : <FaUserAlt/> }
-                        
                     </ul>
                 </div>
                 
