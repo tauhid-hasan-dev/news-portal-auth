@@ -13,10 +13,10 @@ const Main = () => {
                 <div className="col-span-12 lg:col-span-2 hidden lg:block">
                     <LeftSideNav></LeftSideNav>
                 </div>
-                <div className="col-span-12 lg:col-span-7 bg-red-500 ">
+                <div className="col-span-12 lg:col-span-7 bg-slate-50 ">
                     <Outlet></Outlet>
                 </div>
-                <div className="col-span-12 lg:col-span-3 bg-base-200 ">
+                <div className="col-span-12 lg:col-span-3 ">
                     <RightSideNav></RightSideNav>
                 </div>
             </div>

@@ -7,7 +7,6 @@ const Home = () => {
   /*   console.log(news) */
     return (
         <div>
-            <p>this is home {allNews.length}</p>
             {
                 allNews.map(news => <NewsSummeryCard key= {news._id} news={news}></NewsSummeryCard>)
             }
