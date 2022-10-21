@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState();
-  const { signIn } = useContext(AuthContext);
+  const { signIn, setLoading } = useContext(AuthContext);
   let location = useLocation();
   const nevigate = useNavigate();
 
@@ -20,13 +21,22 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         form.reset();
-        nevigate(from, { replace: true });
+        if (user.emailVerified) {
+          nevigate(from, { replace: true });
+        } else {
+          toast.error('Your email is not verified, please verify email');
+        }
+
+
         console.log(user);
       })
       .catch((e) => {
         console.error(e);
         setError(e.message);
-      });
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   };
   return (
     <div className="p-20  flex flex-col items-center">

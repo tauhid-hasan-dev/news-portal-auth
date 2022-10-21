@@ -34,7 +34,7 @@ const Register = () => {
     }
     updateUserProfile(profile)
       .then(() => { })
-      .then(e => console.error(e))
+      .catch(e => console.error(e))
 
   }
 
