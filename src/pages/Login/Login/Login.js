@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => { 
+    const [error, setError] = useState();
     const {signIn} = useContext(AuthContext);
+    const nevigate = useNavigate();
     const handleSignIn = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -13,9 +15,14 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             const user = result.user;
+            form.reset();
+            nevigate('/')
             console.log(user);
         })
-        .catch(e => console.error(e))
+        .catch(e => {
+            console.error(e);
+            setError(e.message)
+        })
     }
     return (
         <div className='p-20  flex flex-col items-center'>
@@ -34,6 +41,9 @@ const Login = () => {
                         <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
                        
                     </div>
+                    <div className='text-red-500'>
+                        {error}
+                    </div>
                     <div className="form-control mt-6">
                         <button className="btn bg-btn-color text-black border-btn-color hover:bg-orange-300 hover:border-orange-300">Login</button>
                     </div>
@@ -41,6 +51,7 @@ const Login = () => {
                             <small className='mr-2'>New to Ema-john?</small>   
                             <Link to='/signup' className="label-text-alt link link-hover text-orange-400">Create New Account</Link>
                     </div>
+                    
             </form>
         </div>
     );
