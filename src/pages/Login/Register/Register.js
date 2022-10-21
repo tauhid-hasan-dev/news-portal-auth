@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +18,8 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         form.reset();
-        updateUsetProfileInfo(name, photoURL)
+        updateUsetProfileInfo(name, photoURL);
+        sendEmailForVerification();
         console.log(user);
       })
       .catch((error) => console.error(error));
@@ -38,6 +39,13 @@ const Register = () => {
   const handleAccepted = event => {
     setAccepted(event.target.checked);
   }
+
+  const sendEmailForVerification = () => {
+    verifyEmail()
+      .then(() => { })
+      .catch(e => console.error(e))
+  }
+
   return (
     <div className="p-20  flex flex-col items-center">
       <form onSubmit={handleSubmit} className="p-10 shadow-2xl w-[450px] ">
