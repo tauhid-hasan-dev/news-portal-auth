@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -12,16 +12,28 @@ const Register = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    console.log(name, email, photoURL, password);
+    /* console.log(name, email, photoURL, password); */
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         form.reset();
+        updateUsetProfileInfo(name, photoURL)
         console.log(user);
       })
       .catch((error) => console.error(error));
   };
+
+  const updateUsetProfileInfo = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    }
+    updateUserProfile(profile)
+      .then(() => { })
+      .then(e => console.error(e))
+
+  }
 
   const handleAccepted = event => {
     setAccepted(event.target.checked);
