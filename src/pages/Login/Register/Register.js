@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
@@ -20,6 +21,7 @@ const Register = () => {
         form.reset();
         updateUsetProfileInfo(name, photoURL);
         sendEmailForVerification();
+        toast.success('Please verify your email!');
         console.log(user);
       })
       .catch((error) => console.error(error));
